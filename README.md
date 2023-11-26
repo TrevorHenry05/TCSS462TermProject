@@ -1,6 +1,6 @@
 # TCSS46TermProject
 
-clone repo into direcotry
+clone repo into directory
 
 # Create python virtual environment
 
