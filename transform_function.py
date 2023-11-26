@@ -4,6 +4,7 @@ import os
 from datetime import datetime
 
 s3_client = boto3.client('s3')
+transformed_csv_bucket_name = "service2csvbucket"
 
 def lambda_handler(event, context):
     # Get bucket name and file key from the S3 event
@@ -18,7 +19,7 @@ def lambda_handler(event, context):
 
     # Read the transformed data and upload to S3
     with open(transformed_file_path, 'rb') as f:
-        s3_client.put_object(Body=f, Bucket=bucket_name, Key='transformed_' + file_key)
+        s3_client.put_object(Body=f, Bucket=transformed_csv_bucket_name, Key='transformed_' + file_key)
 
 def transform_csv(file_path):
     transformed_rows = []
