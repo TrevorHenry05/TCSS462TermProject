@@ -8,6 +8,8 @@ aws s3 cp "$FILE_NAME" "s3://$BUCKET_NAME/$FILE_NAME"
 if [ $? -eq 0 ]; then
     echo "File successfully uploaded to S3."
 
+    start=$(date +%s.%N)
+
     LAMBDA_URL="https://eohzm62ggjmbg4rtwfpl47rpam0ysqbk.lambda-url.us-east-2.on.aws/"
 
     JSON={"\"bucket_name\"":"\"$BUCKET_NAME\"","\"key\"":"\"$FILE_NAME\""}
@@ -63,6 +65,12 @@ if [ $? -eq 0 ]; then
     echo ""
     echo "Lambda function response: $output"
     echo ""
+
+    end=$(date +%s.%N)
+    duration=$(echo "$end - $start" | bc)
+    formatted_duration=$(printf "%.3f" $duration)
+
+    echo "Total time taken: $formatted_duration seconds"
 else
     echo "Failed to upload file to S3."
 fi
