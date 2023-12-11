@@ -3,3 +3,4 @@ env/
 __pycache__/
 .idea/  # If using PyCharm
 *.pyc
+*.csv
