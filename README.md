@@ -18,18 +18,8 @@ pip install -r requirements.txt
 # Query Request Example
 ```
 {
-  "Records": [
-    {
-      "s3": {
-        "bucket": {
-          "name": "service3sqlbucketag"
-        },
-        "object": {
-          "key": "data.db"
-        }
-      }
-    }
-  ],
+  "bucket_name" : "service1csvbucket",
+  "key" : "file_name",
   "Filters": {
     "Region": "Sub-Saharan Africa",
     "Item Type": "Snacks",
