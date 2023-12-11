@@ -75,7 +75,7 @@ def load(file_path):
     
     # Read CSV and prepare data for batch insert
     insert_query = '''
-        INSERT INTO orders (
+        INSERT OR REPLACE INTO orders (
             Region, 
             Country, 
             ItemType, 

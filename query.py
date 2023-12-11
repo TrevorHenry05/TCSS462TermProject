@@ -1,11 +1,8 @@
-import json
-import sqlite3 
-import os
+import sqlite3
 
 def query(requests:dict, db_file_path):
     
     # Check if SQLite DB file exists, if not create it and initialize a table
-    db_exists = os.path.isfile(db_file_path)
     conn = sqlite3.connect(db_file_path)
     cursor = conn.cursor()
 
